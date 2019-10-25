@@ -1,0 +1,22 @@
+<h2>{{ customer.customer_name }} Purchase </h2>\
+<div>
+  <span>Product: </span>
+  {{ customer.product }}
+</div>
+<div>
+  <span>Number of Licenses: </span>
+  {{ customer.no_of_licenses }}
+</div>
+<div>
+  <span>Expiration Date: </span>
+  {{ customer.expiration_date }}
+</div>
+<div>
+  <span>Licenses: </span>
+  <ul>
+    <li *ngFor="let license of customer.licenses">
+      {{ license }}
+    </li>
+  </ul>
+
+</div>

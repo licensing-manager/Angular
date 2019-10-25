@@ -1,0 +1,12 @@
+<h2>My Customers</h2>
+
+<ul class = "customers">
+  <li *ngFor="let customer of customers">
+    <a routerLink="/detail/{{customer.id}}">
+    <span class="badge">{{ customer.customer_name }}</span> {{ customer.product }}
+    </a>
+  </li>
+</ul>
+
+
+
