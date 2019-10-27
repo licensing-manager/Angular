@@ -17,7 +17,7 @@ export class TableComponent implements OnInit {
 
   getCustomers(): void {
     this.customerService.getCustomers()
-      .subscribe(customers => this.customers = customers.slice(1,5));
+      .subscribe(customers => this.customers = customers);
   }
 
 }

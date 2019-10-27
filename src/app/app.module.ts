@@ -7,6 +7,8 @@ import { CustomerDetailComponent } from './customer-detail/customer-detail.compo
 import { AppRoutingModule } from './app-routing.module';
 import { TableComponent } from './table/table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CustomerComponent,
     CustomerDetailComponent,
     TableComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddCustomerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

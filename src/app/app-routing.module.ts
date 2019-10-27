@@ -4,13 +4,15 @@ import { CustomerComponent } from './customer/customer.component';
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { CustomerDetailComponent } from "./customer-detail/customer-detail.component";
 import {TableComponent} from "./table/table.component";
+import {AddCustomerComponent} from './add-customer/add-customer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'customer', component: CustomerComponent },
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'detail/:id', component: CustomerDetailComponent},
-  { path: 'table', component: TableComponent}
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'detail/:id', component: CustomerDetailComponent },
+  { path: 'table', component: TableComponent },
+  { path: 'create', component: AddCustomerComponent }
 ];
 
 @NgModule({
