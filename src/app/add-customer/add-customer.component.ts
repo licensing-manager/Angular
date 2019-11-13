@@ -42,7 +42,6 @@ export class AddCustomerComponent implements OnInit {
 
   addContact() {
     this.contactAdded = true;
-    console.log(this.contactForm.value)
     this.model.contacts.push(this.contactForm.value);
     this.contactForm.reset();
   }
