@@ -1,5 +1,15 @@
 <h6 style="float:left;" class="pb-2 mb-0">Licenses</h6>
-<a style="float:right;" routerLink="/create">Create a New Entry</a>
+
+<div class="dropdown">
+  <button class="btn btn-sm btn-secondary dropdown-toggle" style="float:right;" type="button" data-toggle="dropdown" id="dropdownMenu" aria-haspopup="true" aria-expanded="false">
+    Add New
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+    <a class="dropdown-item" routerLink="/createCustomer">Customer</a>
+    <a class="dropdown-item" routerLink="/createProduct">Product</a>
+    <a class="dropdown-item" routerLink="/createPurchase">Purchase Order</a>
+  </div>
+</div>
     <table class="table">
       <thead>
         <tr>

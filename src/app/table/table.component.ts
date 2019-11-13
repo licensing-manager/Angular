@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from '../customer';
-import { CustomerService } from "../customer.service";
+import { Customer } from '../Interfaces/customer';
+import { CustomerService } from "../Services/customer.service";
 
 @Component({
   selector: 'app-table',

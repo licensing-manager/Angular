@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from '../customer';
-import { CustomerService } from '../customer.service';
+import { Customer } from '../Interfaces/customer';
+import { CustomerService } from '../Services/customer.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-customer',
@@ -8,14 +9,21 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./add-customer.component.css']
 })
 export class AddCustomerComponent implements OnInit {
-  model = new Customer(999,
-        "Enter Customer Name",
-        "Enter Product Name",
-        1,
-        [1012914423],
-        "01/01/2020");
+  model: Customer = {
+    companyName: "",
+    address: "",
+    contacts: []
+  };
+
+  contactForm = new FormGroup({
+    role: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9.@]*')]),
+    phone_number: new FormControl('', Validators.required)
+  });
 
   submitted = false;
+  contactAdded = false;
 
   constructor(private customerService: CustomerService) { }
 
@@ -30,6 +38,13 @@ export class AddCustomerComponent implements OnInit {
 
   SaveInfo() {
     this.customerService.addCustomer(this.model);
+  }
+
+  addContact() {
+    this.contactAdded = true;
+    console.log(this.contactForm.value)
+    this.model.contacts.push(this.contactForm.value);
+    this.contactForm.reset();
   }
 
 }
