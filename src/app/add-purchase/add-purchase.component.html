@@ -1,0 +1,96 @@
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>Add New Customer</h1>
+        <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
+            <div class="form-group">
+                <label for="id">Purchase ID</label>
+                <input type="text" class="form-control" id="id"
+                       required
+                        [(ngModel)]="model.id" name="id"
+                        #id="ngModel">
+                <div [hidden]="id.valid || id.pristine"
+                    class="alert alert-danger">
+                    ID is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Customer Name</label>
+                <input type="text" class="form-control" id="name"
+                       required
+                        [(ngModel)]="model.customer_name" name="name"
+                        #name="ngModel">
+                <div [hidden]="name.valid || name.pristine"
+                    class="alert alert-danger">
+                    Customer Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="product">Product Name</label>
+                <input type="text" class="form-control" id="product"
+                       required
+                        [(ngModel)]="model.product" name="product"
+                        #product="ngModel">
+                <div [hidden]="product.valid || product.pristine"
+                    class="alert alert-danger">
+                    Product Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="no_licenses">Number of Licenses</label>
+                <input type="text" class="form-control" id="no_licenses"
+                       required
+                        [(ngModel)]="model.no_of_licenses" name="no_licenses"
+                        #no_licenses="ngModel">
+                <div [hidden]="no_licenses.valid || no_licenses.pristine"
+                    class="alert alert-danger">
+                    # of licenses is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exp">Expiration Date</label>
+                <input type="text" class="form-control" id="exp"
+                       required
+                        [(ngModel)]="model.expiration_date" name="exp"
+                        #exp="ngModel">
+                <div [hidden]="exp.valid || exp.pristine"
+                    class="alert alert-danger">
+                    Expiration Date is required
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success"
+            [disabled]="!customerForm.form.valid">Submit</button>
+        </form>
+    </div>
+
+    <div [hidden]="!submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+            <div class="col-xs-3">Id: </div>
+            <div class="col-xs-9"> {{ model.id }}</div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-3">Customer Name: </div>
+            <div class="col-xs-9"> {{ model.customer_name }}</div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-3">Product: </div>
+            <div class="col-xs-9"> {{ model.product }}</div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-3">Number of Licenses: </div>
+            <div class="col-xs-9"> {{ model.no_of_licenses }}</div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-3">Expiration Date: </div>
+            <div class="col-xs-9"> {{ model.expiration_date }}</div>
+        </div>
+        <br>
+        <br>
+        <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+        <button class="btn btn-success" (click)="SaveInfo()" routerLink="/table">Add Purchase</button>
+    </div>
+</div>
