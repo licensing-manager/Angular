@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../Interfaces/user';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   
   submitted = false;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -24,5 +25,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true; 
     console.log(this.model);
+    this.http.put('http://localhost:3000/user/login', this.model);
   }
 }

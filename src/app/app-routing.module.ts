@@ -10,7 +10,7 @@ import { AddPurchaseComponent } from './add-purchase/add-purchase.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/table', pathMatch: 'full' },
   { path: 'customer', component: CustomerComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: CustomerDetailComponent },

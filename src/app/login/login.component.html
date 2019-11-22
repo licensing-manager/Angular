@@ -3,19 +3,19 @@
         <h1>Login</h1>
         <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
             <div class="form-group">
-                <label for="name">Username</label>
+                <label for="name">Email</label>
                 <input type="text" class="form-control" id="name"
                        required
                         [(ngModel)]="model.username" name="name"
                         #name="ngModel">
                 <div [hidden]="name.valid || name.pristine"
                     class="alert alert-danger">
-                    Username required
+                    Email required
                 </div>
             </div>
             <div class="form-group">
                 <label for="pass">Password</label>
-                <input type="secret" class="form-control" id="pass"
+                <input type="password" class="form-control" id="pass"
                        required
                         [(ngModel)]="model.password" name="pass"
                         #pass="ngModel">
@@ -31,5 +31,6 @@
 
     <div [hidden]="!submitted">
         <p>Logging in</p>
+        <a routerLink="/table">Go back to table</a>
     </div>
 </div>
