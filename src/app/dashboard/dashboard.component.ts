@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from '../Interfaces/customer';
-import { CustomerService } from "../Services/customer.service";
+import { Purchase } from '../Interfaces/purchase';
+import { PurchaseService } from "../Services/purchase.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,16 +8,16 @@ import { CustomerService } from "../Services/customer.service";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  customers: Customer[] = [];
-  constructor(private customerService: CustomerService) { }
+  purchases: Purchase[] = [];
+  constructor(private purchaseService: PurchaseService) { }
 
   ngOnInit() {
-    this.getCustomers();
+    this.getPurchases();
   }
 
-  getCustomers(): void {
-    this.customerService.getCustomers()
-      .subscribe(customers => this.customers = customers.slice(1,5));
+  getPurchases(): void {
+    this.purchaseService.getPurchases()
+      .subscribe(purchases => this.purchases = purchases.slice(1,5));
   }
 
 }

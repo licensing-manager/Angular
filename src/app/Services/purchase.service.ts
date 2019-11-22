@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Purchase } from '../Interfaces/purchase';
 import { PURCHASES } from '../mock-purchases';
 import { Observable, of, fromEventPattern } from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
