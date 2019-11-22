@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Customer } from '../Interfaces/customer';
 import { CUSTOMERS } from '../mock-customers';
 import { Observable, of } from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -22,6 +22,6 @@ export class CustomerService {
 
   addCustomer(customer: Customer): void {
     CUSTOMERS.push(customer);
-    //this.http.put('http://localhost:3000/customer', customer);
+    this.http.put('http://localhost:3000/customer', customer);
   }
 }

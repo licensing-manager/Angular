@@ -21,6 +21,6 @@ export class PurchaseService {
 
   addPurchase(purchase: Purchase): void {
     PURCHASES.push(purchase);
-    //this.http.put('http://localhost:3000/customer', customer);
+    this.http.put('http://localhost:3000/purchase', purchase);
   }
 }

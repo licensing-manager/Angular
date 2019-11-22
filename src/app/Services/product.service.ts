@@ -17,6 +17,6 @@ export class ProductService {
 
   addProduct(product: Product): void {
     PRODUCTS.push(product);
-    //this.http.put('http://localhost:3000/customer', customer);
+    this.http.put('http://localhost:3000/product', product);
   }
 }
