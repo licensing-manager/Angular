@@ -22,6 +22,7 @@ export class CustomerService {
 
   addCustomer(customer: Customer): void {
     CUSTOMERS.push(customer);
-    this.http.put('http://localhost:3000/customer', customer);
+    this.http.put<Customer>('http://localhost:3000/api/customers', customer)
+      .subscribe(response => {});
   }
 }

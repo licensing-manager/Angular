@@ -1,5 +1,5 @@
 export interface Purchase {
-    id: number;
+    purchaseId: number;
     customer_name: string;
     product: string;
     no_of_licenses: number;

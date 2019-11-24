@@ -18,7 +18,7 @@ export class AddPurchaseComponent implements OnInit {
   products: Product[];
 
   model: Purchase = {
-    id: null,
+    purchaseId: null,
     customer_name: "",
     product: "",
     no_of_licenses: null,
@@ -59,7 +59,7 @@ export class AddPurchaseComponent implements OnInit {
 
   getProducts() {
     this.productService.getProducts()
-      .subscribe(products => this.products = products);
+    .subscribe(products => this.products = products);
   }
 
   SaveInfo() {

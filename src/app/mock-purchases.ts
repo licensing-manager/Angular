@@ -2,7 +2,7 @@ import { Purchase } from './Interfaces/purchase';
 
 export let PURCHASES: Purchase[] = [
     {
-        id: 1,
+        purchaseId: 1,
         customer_name: 'Company 1',
         product: 'Software 1',
         no_of_licenses: 100,
@@ -11,7 +11,7 @@ export let PURCHASES: Purchase[] = [
         licenseKeyType: 'Type 3'
       },
       {
-        id: 2,
+        purchaseId: 2,
         customer_name: 'Company 2',
         product: 'Software 2',
         no_of_licenses: 1000,
@@ -20,7 +20,7 @@ export let PURCHASES: Purchase[] = [
         licenseKeyType: 'Type 1'
       },
       {
-        id: 3,
+        purchaseId: 3,
         customer_name: 'Company 1',
         product: 'Software 2',
         no_of_licenses: 100,
@@ -29,7 +29,7 @@ export let PURCHASES: Purchase[] = [
         licenseKeyType: 'Type 3'
       },
       {
-        id: 4,
+        purchaseId: 4,
         customer_name: 'Company 3',
         product: 'Software 1',
         no_of_licenses: 10,
@@ -38,7 +38,7 @@ export let PURCHASES: Purchase[] = [
         licenseKeyType: 'Type 2'
       },
       {
-        id: 5,
+        purchaseId: 5,
         customer_name: 'Company 4',
         product: 'Software 3',
         no_of_licenses: 100,
@@ -47,7 +47,7 @@ export let PURCHASES: Purchase[] = [
         licenseKeyType: 'Type 1'
       },
       {
-        id: 6,
+        purchaseId: 6,
         customer_name: 'Company 5',
         product: 'Software 1',
         no_of_licenses: 100,
@@ -56,7 +56,7 @@ export let PURCHASES: Purchase[] = [
         licenseKeyType: 'Type 3'
       },
       {
-        id: 7,
+        purchaseId: 7,
         customer_name: 'Company 6',
         product: 'Software 3',
         no_of_licenses: 100,
@@ -65,7 +65,7 @@ export let PURCHASES: Purchase[] = [
         licenseKeyType: 'Type 2'
       },
       {
-        id: 8,
+        purchaseId: 8,
         customer_name: 'Company 2',
         product: 'Software 1',
         no_of_licenses: 1000,

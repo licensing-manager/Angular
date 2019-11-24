@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/table', pathMatch: 'full' },
-  { path: 'customer', component: CustomerComponent },
+  { path: 'customer123', component: CustomerComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: CustomerDetailComponent },
   { path: 'table', component: TableComponent },

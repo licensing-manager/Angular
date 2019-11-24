@@ -16,11 +16,12 @@ export class PurchaseService {
   }
 
   getPurchase(id: number): Observable<Purchase> {
-    return of(PURCHASES.find(purchase => purchase.id === id));
+    return of(PURCHASES.find(purchase => purchase.purchaseId === id));
   }
 
   addPurchase(purchase: Purchase): void {
     PURCHASES.push(purchase);
-    this.http.put('http://localhost:3000/purchase', purchase);
+    this.http.post<Purchase>('http://localhost:3000/api/purchases', purchase)
+      .subscribe(response => {});
   }
 }
