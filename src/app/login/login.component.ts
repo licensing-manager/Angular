@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true; 
     console.log(this.model);
-    this.http.put('http://localhost:3000/user/login', this.model);
+    this.http.put('http://localhost:3000/api/user/login', this.model)
+      .subscribe(response => {});
   }
 }
