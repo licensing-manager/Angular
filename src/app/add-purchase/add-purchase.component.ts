@@ -63,6 +63,7 @@ export class AddPurchaseComponent implements OnInit {
   }
 
   SaveInfo() {
+    console.log(this.model);
     this.purchaseService.addPurchase(this.model);
   }
 
