@@ -20,8 +20,10 @@ export class PurchaseService {
   }
 
   addPurchase(purchase: Purchase): void {
+    purchase.licenseKeyType = "type1";
+    purchase.licenses = [];
     PURCHASES.push(purchase);
-    this.http.post<Purchase>('http://localhost:3000/api/purchases', purchase)
+    this.http.put<Purchase>('http://localhost:3000/api/purchases', purchase)
       .subscribe(response => {});
   }
 }
