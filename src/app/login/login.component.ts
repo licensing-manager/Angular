@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../Interfaces/user';
 import { HttpClient } from '@angular/common/http';
-
+import { accessToken } from '../Interfaces/accessToken';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true; 
     console.log(this.model);
-    this.http.put('http://localhost:3000/api/user/login', this.model)
-      .subscribe(response => {});
+    this.http.post('http://localhost:3000/api/users/login', this.model)
+      .subscribe(response => {console.log((<accessToken>response).userId)});
   }
 }

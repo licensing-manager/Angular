@@ -3,6 +3,7 @@ import { Customer } from '../Interfaces/customer';
 import { CustomerService } from '../Services/customer.service';
 import { Purchase } from '../Interfaces/purchase';
 import { PurchaseService } from '../Services/purchase.service';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-table',
