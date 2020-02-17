@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
@@ -14,6 +15,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AddPurchaseComponent } from './add-purchase/add-purchase.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import {DemoMaterialModule} from './material-module';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,11 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatNativeDateModule,
+    DemoMaterialModule
+  ],
+  exports: [
   ],
   providers: [],
   bootstrap: [AppComponent]

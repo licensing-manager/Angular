@@ -3,7 +3,7 @@ import { Customer } from '../Interfaces/customer';
 import { CustomerService } from '../Services/customer.service';
 import { Purchase } from '../Interfaces/purchase';
 import { PurchaseService } from '../Services/purchase.service';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-table',
@@ -14,6 +14,9 @@ export class TableComponent implements OnInit {
   customers: Customer[] = [];
   purchases: Purchase[] = [];
 
+  displayColumns: String[] = ['customer_name', 'product', 'no_of_licenses', 'expiration_date'];
+  dataSource: MatTableDataSource<Purchase>;
+
   constructor(
               private customerService: CustomerService,
               private purchaseService: PurchaseService
@@ -22,6 +25,7 @@ export class TableComponent implements OnInit {
   ngOnInit() {
     this.getCustomers();
     this.getPurchases();
+    this.dataSource = new MatTableDataSource(this.purchases);
   }
 
   getCustomers(): void {
