@@ -9,11 +9,16 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CustomerService {
-
+  customers: Customer[];
   constructor(private http: HttpClient) { }
   
   getCustomers(): Observable<Customer[]> {
-    return of(CUSTOMERS);
+    this.http.get<Customer[]>('http://localhost:3000/api/customers', {observe:'response'}).subscribe(res => {
+      let response = res.body;
+      this.customers = response;
+    });
+    return of(this.customers);
+    //return of(CUSTOMERS);
   }
 
   getCustomer(id: number): Observable<Customer> {

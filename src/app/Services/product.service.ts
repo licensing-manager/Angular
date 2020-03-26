@@ -17,8 +17,8 @@ export class ProductService {
       this.products = response;
     });
     console.log(this.products);
-    //return of(this.products);
-    return of(PRODUCTS);
+    return of(this.products);
+    //return of(PRODUCTS);
   }
 
   addProduct(product: Product): void {

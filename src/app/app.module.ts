@@ -15,7 +15,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AddPurchaseComponent } from './add-purchase/add-purchase.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import {DemoMaterialModule} from './material-module';
+import { DemoMaterialModule } from './material-module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {DemoMaterialModule} from './material-module';
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
-    DemoMaterialModule
+    DemoMaterialModule,
+    BrowserAnimationsModule
   ],
   exports: [
   ],
