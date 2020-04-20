@@ -1,8 +1,10 @@
-<h3>Customers With Licenses Expiring Soon</h3>
+<h1>Licenses Expiring Within a Month</h1>
 <div class="grid grid-pad">
   <a *ngFor="let purchase of purchases" class="col-1-4">
-    <div class="module hero">
+    <div class="module hero" (click)="openPurchaseDetail(purchase)">
       <h4>{{ purchase.customer_name }}</h4>
+      <h4>{{ purchase.expiration_date }}</h4>
+      <h6>{{ purchase.product }} </h6>
     </div>
   </a>
 </div>

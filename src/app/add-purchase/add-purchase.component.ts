@@ -68,9 +68,6 @@ export class AddPurchaseComponent implements OnInit {
     this.purchaseService.addPurchase(this.model);
   }
 
-  openDialog(): void {
-  }
-
   closeDialog():void {
     this.SaveInfo();
     this.resetModel();

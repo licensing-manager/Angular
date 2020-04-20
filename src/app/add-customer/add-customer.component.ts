@@ -49,9 +49,6 @@ export class AddCustomerComponent implements OnInit {
     this.model.contacts.push(this.contactForm.value);
     this.contactForm.reset();
   }
-  
-  openDialog(): void {
-  }
 
   closeDialog():void {
     this.SaveInfo();

@@ -1,0 +1,26 @@
+<pre><h4>Customer:                           {{ customer.companyName }}</h4></pre>
+<pre><h4>Product:                              {{ data.productName }}</h4></pre>
+<pre><h4>Number of Licenses:          {{ data.no_of_licenses }}</h4></pre>
+<pre><h4>Expiration Date:                  {{ data.expiration_date }}</h4></pre>
+<h5>Contacts at {{ data.companyName }}:</h5>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Role</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of customer.contacts">
+      <td>{{contact.role}}</td>
+      <td>{{contact.name}}</td>
+      <td>{{contact.email}}</td>
+      <td>{{contact.phone_number}}</td>
+    </tr>
+  </tbody>
+</table>
+<h6>Mailing Address for {{ customer.companyName }}:</h6>
+<br>
+<h6>{{customer.address}}</h6>

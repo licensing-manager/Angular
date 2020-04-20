@@ -32,9 +32,6 @@ export class AddProductComponent implements OnInit {
     this.productService.addProduct(this.model);
   }
 
-  openDialog(): void {
-  }
-
   closeDialog():void {
     this.SaveInfo();
     this.dialog.closeAll();
