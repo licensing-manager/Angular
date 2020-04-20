@@ -39,6 +39,8 @@ export class PurchaseService {
       this.getPurchases();
     }
     
+    this.purchasesExpiringSoon = [];
+
     var today = new Date();
     var todayString = today.toISOString();
     var todayString = todayString.slice(0, 4) + todayString.slice(5, 7) + todayString.slice(8, 10);
