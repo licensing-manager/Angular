@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Customer } from '../Interfaces/customer';
 
 import { ActivatedRoute} from "@angular/router";
 import { Location } from '@angular/common';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { CustomerService } from "../Services/customer.service";
 
@@ -12,27 +13,26 @@ import { CustomerService } from "../Services/customer.service";
   styleUrls: ['./customer-detail.component.css']
 })
 export class CustomerDetailComponent implements OnInit {
-
-  @Input() customer: Customer;
+  customer: Customer
 
   constructor(
-    private route: ActivatedRoute,
     private customerService: CustomerService,
-    private location: Location
+    private dialogRef: MatDialogRef<CustomerDetailComponent>,
+    @Inject(MAT_DIALOG_DATA) private data
   ) { }
 
   ngOnInit() {
-    this.getCustomer();
+    this.getCustomer(this.data.companyName);
   }
 
-  getCustomer(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.customerService.getCustomer(id)
-      .subscribe(customer => this.customer = customer)
+  getCustomer(companyName: string): void {
+    this.customerService.getCustomer(companyName)
+      .subscribe(customer => this.customer = customer);
   }
 
-  goBack(): void {
-    this.location.back();
+
+  close() {
+    this.dialogRef.close();
   }
 
 }

@@ -16,7 +16,7 @@ export class PurchaseService {
       let response = res.body;
       this.purchases = response;
     });
-    console.log(this.purchases)
+    //console.log(this.purchases)
     return of(this.purchases);
     //return of(PURCHASES);
   }
@@ -29,7 +29,7 @@ export class PurchaseService {
     purchase.licenseKeyType = "type1";
     purchase.licenses = [];
     console.log(purchase);
-    PURCHASES.push(purchase);
+    //PURCHASES.push(purchase);
     this.http.put<Purchase>('http://localhost:3000/api/purchases', purchase)
       .subscribe(response => {});
   }

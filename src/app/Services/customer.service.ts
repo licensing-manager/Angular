@@ -21,12 +21,13 @@ export class CustomerService {
     //return of(CUSTOMERS);
   }
 
-  getCustomer(id: number): Observable<Customer> {
-    return of(CUSTOMERS.find(customer => customer.id === id));
+  getCustomer(companyName: string): Observable<Customer> {
+    return of(this.customers.find(customer => customer.companyName === companyName));
   }
 
   addCustomer(customer: Customer): void {
-    CUSTOMERS.push(customer);
+    //CUSTOMERS.push(customer);
+    console.log(customer);
     this.http.put<Customer>('http://localhost:3000/api/customers', customer)
       .subscribe(response => {});
   }

@@ -16,7 +16,7 @@ export class ProductService {
       let response = res.body;
       this.products = response;
     });
-    console.log(this.products);
+    //console.log(this.products);
     return of(this.products);
     //return of(PRODUCTS);
   }

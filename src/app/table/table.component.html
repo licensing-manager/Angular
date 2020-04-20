@@ -5,9 +5,12 @@
     Add New
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-    <a class="dropdown-item" routerLink="/createCustomer">Customer</a>
-    <a class="dropdown-item" routerLink="/createProduct">Product</a>
-    <a class="dropdown-item" routerLink="/createPurchase">Purchase Order</a>
+    <a class="dropdown-item" (click)="openCustomerEntry()">Customer</a>
+    <a class="dropdown-item" (click)="openProductEntry()">Product</a>
+    <a class="dropdown-item" (click)="openPurchaseEntry()">Purchase Order</a>
+    <!-- <a class="dropdown-item" routerLink="/createCustomer">Customer</a> -->
+    <!-- <a class="dropdown-item" routerLink="/createProduct">Product</a> -->
+    <!-- <a class="dropdown-item" routerLink="/createPurchase">Purchase Order</a> -->
   </div>
 </div>
 <div>
@@ -35,7 +38,7 @@
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openCustomerInfo(row)" class="purchase-row"></mat-row>
 </mat-table>
 
 <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>

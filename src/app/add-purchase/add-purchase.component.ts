@@ -6,6 +6,7 @@ import { PurchaseService } from '../Services/purchase.service';
 import { Product } from '../Interfaces/product';
 import { ProductService } from '../Services/product.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-add-purchase',
@@ -13,7 +14,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./add-purchase.component.css']
 })
 export class AddPurchaseComponent implements OnInit {
-
   customers: Customer[];
   products: Product[];
 
@@ -34,7 +34,8 @@ export class AddPurchaseComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     private purchaseService: PurchaseService,
-    private productService: ProductService
+    private productService: ProductService,
+    public dialogRef: MatDialogRef<AddPurchaseComponent>
   ) { }
 
   ngOnInit() {
@@ -63,8 +64,25 @@ export class AddPurchaseComponent implements OnInit {
   }
 
   SaveInfo() {
-    console.log(this.model);
+    //console.log(this.model);
     this.purchaseService.addPurchase(this.model);
   }
 
+  openDialog(): void {
+  }
+
+  closeDialog():void {
+    this.SaveInfo();
+    this.resetModel();
+    this.dialogRef.close();
+  }
+  resetModel(): void {
+    this.model.purchaseId = null;
+    this.model.customer_name = "";
+    this.model.product = "";
+    this.model.no_of_licenses = null
+    this.model.expiration_date =  "";
+    this.model.licenses = [];
+    this.model.licenseKeyType = "";
+  }
 }

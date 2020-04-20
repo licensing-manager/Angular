@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from '../Interfaces/customer';
 import { CustomerService } from '../Services/customer.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-add-customer',
@@ -9,6 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./add-customer.component.css']
 })
 export class AddCustomerComponent implements OnInit {
+
   model: Customer = {
     companyName: "",
     address: "",
@@ -18,14 +20,16 @@ export class AddCustomerComponent implements OnInit {
   contactForm = new FormGroup({
     role: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9.@]*')]),
-    phone_number: new FormControl('', Validators.required)
+    email: new FormControl('', Validators.required),
+    phone_number: new FormControl('', [Validators.required, Validators.pattern(new RegExp("[0-9]{10}"))])
   });
 
   submitted = false;
   contactAdded = false;
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService,
+              public dialog: MatDialog
+              ) { }
 
   ngOnInit() {
   }
@@ -45,5 +49,12 @@ export class AddCustomerComponent implements OnInit {
     this.model.contacts.push(this.contactForm.value);
     this.contactForm.reset();
   }
+  
+  openDialog(): void {
+  }
 
+  closeDialog():void {
+    this.SaveInfo();
+    this.dialog.closeAll();
+  }
 }

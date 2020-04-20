@@ -38,7 +38,7 @@
                 <br>
                 <label>
                     Contact Email
-                    <input type="text" formControlName="email">
+                    <input type="text" formControlName="email" ngModel email>
                 </label>
                 <br>
                 <label>
@@ -80,18 +80,38 @@
     <div [hidden]="!submitted">
             <h2>You submitted the following:</h2>
             <div class="row">
-                <div class="col-xs-3">Company Name: </div>
-                <div class="col-xs-9"> {{ model.companyName }}</div>
+                <h4>Company Name:  </h4>
+                <h4 color="blue"> {{ model.companyName }}</h4>
             </div>
             <br>
             <div class="row">
-                <div class="col-xs-3">Address: </div>
-                <div class="col-xs-9"> {{ model.address }}</div>
+                <h4>Address:  </h4>
+                <h4 color="blue"> {{ model.address }}</h4>
             </div>
             <br>
             <br>
+            <h4>Contacts</h4>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Role</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let contact of model.contacts">
+                        <td>{{contact.role}}</td>
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.email}}</td>
+                        <td>{{contact.phone_number}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            <br><br>
             <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-            <button class="btn btn-success" (click)="SaveInfo()" routerLink="/table">Add Customer</button>
+            <button class="btn btn-success" (click)="closeDialog()">Add Customer</button>
     </div>
 </div>
    
