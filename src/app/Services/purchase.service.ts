@@ -38,18 +38,16 @@ export class PurchaseService {
     if (this.purchases.length == 0) {
       this.getPurchases();
     }
-    
     this.purchasesExpiringSoon = [];
 
+    var _30_from_today = new Date();
+    _30_from_today.setMonth(_30_from_today.getMonth() + 1);
     var today = new Date();
-    var todayString = today.toISOString();
-    var todayString = todayString.slice(0, 4) + todayString.slice(5, 7) + todayString.slice(8, 10);
 
     for (var purchase of this.purchases) {
-      var reformattedDate = purchase.expiration_date.slice(6) + purchase.expiration_date.slice(0, 2)
-                            + purchase.expiration_date.slice(3, 5);
-      
-      if (Number(reformattedDate) + 30 >= Number(todayString)) {
+      var exp_date = new Date(purchase.expiration_date);
+      if (exp_date < _30_from_today && today < exp_date) {
+
         this.purchasesExpiringSoon.push(purchase);
       }
     }

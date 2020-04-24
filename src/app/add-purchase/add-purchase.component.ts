@@ -7,6 +7,7 @@ import { Product } from '../Interfaces/product';
 import { ProductService } from '../Services/product.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { LicensesService } from "../Services/licenses.service";
 
 @Component({
   selector: 'app-add-purchase',
@@ -16,6 +17,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class AddPurchaseComponent implements OnInit {
   customers: Customer[];
   products: Product[];
+  licensesGenerated = false;
 
   model: Purchase = {
     purchaseId: null,
@@ -35,6 +37,7 @@ export class AddPurchaseComponent implements OnInit {
     private customerService: CustomerService,
     private purchaseService: PurchaseService,
     private productService: ProductService,
+    private licenseService: LicensesService,
     public dialogRef: MatDialogRef<AddPurchaseComponent>
   ) { }
 
@@ -81,5 +84,17 @@ export class AddPurchaseComponent implements OnInit {
     this.model.expiration_date =  "";
     this.model.licenses = [];
     this.model.licenseKeyType = "";
+  }
+
+  generateLicenses(n : Number, product_s: String, exp_dt: string) : void {
+    var request = {
+      num: n,
+      licenses: [],
+      product: product_s,
+      expiration_date: exp_dt
+    };
+    this.licenseService.generateLicenses(request, this.model.customer_name);
+    this.licensesGenerated = true;
+    this.closeDialog();
   }
 }

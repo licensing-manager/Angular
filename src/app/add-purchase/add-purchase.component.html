@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="exp">Expiration Date</label>
+                <label for="exp">Expiration Date (mm/dd/yyyy)</label>
                 <input type="text" class="form-control" id="exp"
                        required
                         [(ngModel)]="model.expiration_date" name="exp"
@@ -55,7 +55,7 @@
         <h2>You submitted the following:</h2>
         <div class="row">
             <div class="col-xs-3">Id: </div>
-            <div class="col-xs-9"> {{ model.id }}</div>
+            <div class="col-xs-9"> {{ model.purchaseId }}</div>
         </div>
         <br>
         <div class="row">
@@ -74,12 +74,13 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-xs-3">Expiration Date: (mm/dd/yyyy)</div>
+            <div class="col-xs-3">Expiration Date:</div>
             <div class="col-xs-9"> {{ model.expiration_date }}</div>
         </div>
         <br>
         <br>
         <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-        <button class="btn btn-success" (click)="closeDialog()">Add Purchase</button>
+        <button class="btn btn-success" [disabled]="licensesGenerated"  (click)="generateLicenses(model.no_of_licenses, model.product, model.expiration_date)">Generate Licenses and Save</button>
+        <!-- <button class="btn btn-success" [disabled]="!licensesGenerated" (click)="closeDialog()">Add Purchase</button> -->
     </div>
 </div>
